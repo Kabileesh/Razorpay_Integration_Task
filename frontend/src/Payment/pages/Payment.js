@@ -5,9 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getPaymentState,
   razorpayInstanceCreation,
+  removePaymentInfo,
 } from "../../store/slices/paymentSlice";
 import SuccessModal from "../components/SuccessModal";
 import FailureModal from "../components/FailureModal";
+import { removeOrderInfo } from "../../store/slices/orderSlice";
 
 const loadScript = (src) => {
   return new Promise((resolve) => {
@@ -66,9 +68,11 @@ const Razorpay = () => {
       order_id: instanceDetails.payload.order.id,
       callback_url:
         process.env.REACT_APP_BASE_URL + "/verify-razorpay-signature",
-      handler: (response) => {
+      handler: async (response) => {
         SetModalOpen(false);
         setOrderId(response.razorpay_order_id);
+        await dispatch(removeOrderInfo());
+        await dispatch(removePaymentInfo());
         setPaymentSuccess(true);
       },
       notes: {
@@ -83,6 +87,7 @@ const Razorpay = () => {
     paymentObject.on("payment.failed", async (response) => {
       SetModalOpen(false);
       setErrorReason(response.error.description);
+      await dispatch(removePaymentInfo());
       setPaymentFailed(true);
     });
     paymentObject.open();
