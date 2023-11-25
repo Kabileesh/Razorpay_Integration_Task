@@ -20,7 +20,7 @@ const Bill = () => {
     const orderInfo = await dispatch(orderPlacement(orderDetails));
 
     const order = {
-      amount: orderInfo.payload.orderDetails.amount * 100,
+      amount: totalPrice * 100,
       currency: "INR",
       receipt: orderInfo.payload.orderDetails._id,
     };
