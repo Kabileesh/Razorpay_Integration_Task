@@ -1,9 +1,8 @@
 import { useNavigate } from "react-router-dom";
+import SuccessIcon from "../icons/SuccessIcon";
 
 const SuccessModal = (props) => {
   const navigate = useNavigate();
-
-  console.log(props);
 
   const successHandler = () => {
     navigate("/");
@@ -18,32 +17,7 @@ const SuccessModal = (props) => {
       <div className="relative w-full max-w-md bg-white dark:bg-gray-700 rounded-lg shadow">
         <div className="relative flex-col bg-white rounded-lg shadow dark:bg-gray-700">
           <div className="flex flex-col items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-            <svg
-              className="ft-green-tick"
-              xmlns="http://www.w3.org/2000/svg"
-              height="100"
-              width="100"
-              viewBox="0 0 48 48"
-              aria-hidden="true"
-            >
-              <circle
-                className="circle"
-                fill="#5bb543"
-                cx="24"
-                cy="24"
-                r="22"
-              />
-              <path
-                className="tick"
-                fill="none"
-                stroke="#FFF"
-                strokeWidth="6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeMiterlimit="10"
-                d="M14 27l5.917 4.917L34 17"
-              />
-            </svg>
+            <SuccessIcon />
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
               Payment Success
             </h3>
@@ -56,7 +30,7 @@ const SuccessModal = (props) => {
               Order ID: {props.order_id}
             </p>
             <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-              Total Amount: {props.amount}
+              Total Amount: ₹ {props.amount / 100}.00
             </p>
           </div>
           <div className="flex justify-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">

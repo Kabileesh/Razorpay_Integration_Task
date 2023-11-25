@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import FailureIcon from "../icons/FailureIcon";
 
 const FailureModal = () => {
   const navigate = useNavigate();
@@ -16,24 +17,7 @@ const FailureModal = () => {
       <div className="relative w-full max-w-md bg-white dark:bg-gray-700 rounded-lg shadow">
         <div className="relative flex-col bg-white rounded-lg shadow dark:bg-gray-700">
           <div className="flex flex-col items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="100"
-              width="100"
-              viewBox="0 0 48 48"
-              aria-hidden="true"
-            >
-              <circle fill="#FF0000" cx="24" cy="24" r="22" />
-              <path
-                fill="none"
-                stroke="#FFF"
-                strokeWidth="6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeMiterlimit="10"
-                d="M14 14L34 34M14 34L34 14"
-              />
-            </svg>
+            <FailureIcon />
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
               Payment Failed
             </h3>

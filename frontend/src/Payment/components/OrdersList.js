@@ -69,21 +69,6 @@ const OrdersList = () => {
         }
       )}
     </div>
-
-    // <div className="bg-white p-4 md:p-6 lg:p-8 xl:p-10 rounded-lg mb-8 flex items-center justify-center">
-    //   <div className="place-content-center">
-    //     <h2 className="text-2xl text-center font-bold mb-4">Your Orders</h2>
-    //     {Object.entries(orderItems).map(([itemName, price]) => {
-    //       return <OrderItem key={itemName} itemName={itemName} price={price} />;
-    //     })}
-    //     <button
-    //       type="button"
-    //       className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
-    //     >
-    //       Add More Items
-    //     </button>
-    //   </div>
-    // </div>
   );
 };
 

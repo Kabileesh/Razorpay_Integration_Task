@@ -1,4 +1,5 @@
 import React from "react";
+import ClockIcon from "../icons/ClockIcon";
 
 const Header = () => {
   return (
@@ -24,15 +25,10 @@ const Header = () => {
             PICK UP
           </div>
         </div>
-        <div className="self-center flex w-full max-w-[192px] items-stretch justify-between gap-5 mt-8 max-md:justify-center">
-          <div className="text-white text-center text-sm font-bold leading-3 tracking-tight opacity-80">
-            25 mins
-          </div>
-          <div className="text-white text-center text-sm font-bold leading-3 tracking-tight opacity-80">
-            ₹ 20
-          </div>
-          <div className="text-white text-center text-sm font-bold leading-3 tracking-tight opacity-80 whitespace-nowrap">
-            Discounts
+        <div className="self-center flex w-full max-w-[192px] items-stretch mt-8 max-md:justify-center">
+          <ClockIcon />
+          <div className="text-white text-center text-sm font-bold leading-3 tracking-tight mb-2 ml-2">
+            Delivered In : 25 mins
           </div>
         </div>
         <div className="text-white text-center text-lg font-bold leading-3 tracking-tight self-center whitespace-nowrap mt-2.5 mb-5">

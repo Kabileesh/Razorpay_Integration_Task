@@ -78,24 +78,6 @@ const Bill = () => {
         Place Order
       </button>
     </div>
-    // <div className="p-4 bg-white mb-20 flex items-center justify-center">
-    //   <div className="place-content-center">
-    //     <h2 className="text-xl font-bold mb-4">Bill Summary</h2>
-    //     <div>
-    //       <p>Subtotal: ${orderDetails.amount}</p>
-    //       <p>Taxes: ${tax}</p>
-    //       <p className="text-xl font-bold mt-2">
-    //         Total: ${orderDetails.amount + tax}
-    //       </p>
-    //     </div>
-    //     <button
-    //       className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded mt-4"
-    //       onClick={placeOrderHandler}
-    //     >
-    //       Place Order
-    //     </button>
-    //   </div>
-    // </div>
   );
 };
 
