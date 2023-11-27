@@ -6,7 +6,7 @@ const cors = require("cors");
 const CustomError = require("./Utils/customError");
 const globalErrorHandler = require("./Utils/globalErrorHandler");
 const { NOT_FOUND } = require("./Utils/constants");
-const paymentRouter = require("./payment/router/routes");
+const paymentRouter = require("./Payment/router/routes");
 
 const app = express();
 
