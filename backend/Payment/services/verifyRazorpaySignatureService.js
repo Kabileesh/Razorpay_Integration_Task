@@ -1,4 +1,4 @@
-const cypto = require("crypto");
+const cypto = require("crypto-js");
 const Order = require("../model/orderModel");
 require("dotenv").config();
 
