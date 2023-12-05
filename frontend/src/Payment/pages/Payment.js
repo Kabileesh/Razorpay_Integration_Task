@@ -10,6 +10,7 @@ import {
 import SuccessModal from "../components/SuccessModal";
 import FailureModal from "../components/FailureModal";
 import { removeOrderInfo } from "../../store/slices/orderSlice";
+import LoadingSpinner from "../icons/LoadingSpinner";
 
 const loadScript = (src) => {
   return new Promise((resolve) => {
@@ -27,6 +28,7 @@ const loadScript = (src) => {
 
 const Razorpay = () => {
   const [isModalOpen, SetModalOpen] = useState(true);
+  const [isLoading, setLoading] = useState(false);
   const [isPaymentSuccess, setPaymentSuccess] = useState(false);
   const [isPaymentFailed, setPaymentFailed] = useState(false);
 
@@ -44,6 +46,8 @@ const Razorpay = () => {
   };
 
   const displayRazorpay = async () => {
+    setLoading(true);
+
     const res = await loadScript(
       "https://checkout.razorpay.com/v1/checkout.js"
     );
@@ -90,7 +94,10 @@ const Razorpay = () => {
       await dispatch(removePaymentInfo());
       setPaymentFailed(true);
     });
+
     paymentObject.open();
+
+    setLoading(false);
   };
 
   return (
@@ -111,10 +118,10 @@ const Razorpay = () => {
               </h3>
               <button
                 type="button"
-                className="text-white bg-[#050708] hover:bg-[#050708]/80 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 me-2 mb-2"
+                className="text-white gap-4 bg-[#050708] hover:bg-[#050708]/80 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 me-2 mb-2"
                 onClick={displayRazorpay}
               >
-                Proceed to Pay
+                {isLoading ? <><LoadingSpinner /> Proceeding...</> : "Proceed to Pay"}
               </button>
               <button
                 data-modal-hide="popup-modal"

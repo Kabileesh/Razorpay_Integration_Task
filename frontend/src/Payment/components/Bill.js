@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addPaymentInfo } from "../../store/slices/paymentSlice";
 import { getOrderState, orderPlacement } from "../../store/slices/orderSlice";
+import LoadingSpinner from "../icons/LoadingSpinner";
 
 const Bill = () => {
   const deliveryCharge = 12;
+
+  const [isLoading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -17,6 +20,7 @@ const Bill = () => {
   const totalPrice = orderDetails.amount - discount + taxes + deliveryCharge;
 
   const placeOrderHandler = async () => {
+    setLoading(true);
     const orderInfo = await dispatch(orderPlacement(orderDetails));
 
     const order = {
@@ -25,7 +29,8 @@ const Bill = () => {
       receipt: orderInfo.payload.orderDetails._id,
     };
 
-    dispatch(addPaymentInfo(order));
+    await dispatch(addPaymentInfo(order));
+    setLoading(false);
     navigate("/payment");
   };
 
@@ -72,10 +77,10 @@ const Bill = () => {
         </div>
       </div>
       <button
-        className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded mt-4"
+        className="bg-green-500 flex flex-row gap-5 hover:bg-green-600 text-white px-4 py-2 rounded mt-4"
         onClick={placeOrderHandler}
       >
-        Place Order
+        {isLoading ? <><LoadingSpinner /> Loading...</> : "Place Order"}
       </button>
     </div>
   );
