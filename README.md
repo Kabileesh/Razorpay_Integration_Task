@@ -1,5 +1,5 @@
 # 💸 Razorpay Payment Integration
-👉 [Click here](https://hilarious-paletas-b33147.netlify.app/) to check the live application.
+👉 [Click here](https://helpful-pegasus-7dc6cc.netlify.app/) to check the live application.
 
 
 ## 📦 Prerequisites
