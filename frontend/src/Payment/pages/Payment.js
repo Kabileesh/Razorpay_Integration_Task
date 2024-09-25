@@ -67,7 +67,7 @@ const Razorpay = () => {
       key: process.env.REACT_APP_MY_KEY_ID,
       amount: instanceDetails.payload.order.amount,
       currency: instanceDetails.payload.order.currency,
-      name: "TechStax Pvt Ltd",
+      name: "TSX Pizzarias Pvt Ltd",
       description: "Test Transaction",
       order_id: instanceDetails.payload.order.id,
       callback_url:
